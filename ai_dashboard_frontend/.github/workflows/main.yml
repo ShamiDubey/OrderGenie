@@ -1,0 +1,84 @@
+name: Flutter Build
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build APK and IPA
+    runs-on: macos-latest
+
+    # This sets the default directory for all 'run' commands
+    defaults:
+      run:
+        working-directory: ai_dashboard_frontend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create .env file
+        # Note: We use the working-directory context here
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0' # Updated to a common stable version
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze code
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+
+      - name: Build Android APK
+        run: flutter build apk --release
+
+      - name: Build iOS IPA
+        run: flutter build ios --release --no-codesign
+
+      # so we include the subfolder name here.
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: ai_dashboard_frontend/build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Zip iOS Build
+        run: |
+          cd build/ios/iphoneos
+          zip -r release-ios.zip Runner.app
+          # Exporting variable for use in the release step
+          echo "IOS_ZIP_PATH=ai_dashboard_frontend/build/ios/iphoneos/release-ios.zip" >> $GITHUB_ENV
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          files: |
+            ai_dashboard_frontend/build/app/outputs/flutter-apk/app-release.apk
+            ${{ env.IOS_ZIP_PATH }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Changed to default GITHUB_TOKEN
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ai_dashboard_frontend/build/web
+          
