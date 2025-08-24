@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barista Kiosk Order Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        cafe: {
+                            bg: "#F9F6F0",        // Warm cream background
+                            surface: "#FFFFFF",   // Card surface
+                            text: "#433422",      // Dark coffee brown text
+                            subtext: "#786452",   // Lighter earthy brown
+                            border: "#EBE5D9",    // Soft border
+                        },
+                        forest: {
+                            500: "#2E7D32",       // Success green
+                            600: "#1B5E20",       // Darker green
+                            100: "#E8F5E9",       // Light green bg
+                        },
+                        caramel: {
+                            500: "#D97706",       // Rich caramel
+                            100: "#FEF3C7",       // Light caramel bg
+                        },
+                        stone: {
+                            200: "#E7E5E4",       // Warm gray button
+                            300: "#D6D3D1",       // Hover state
+                            800: "#292524",       // Button text
+                        }
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    animation: {
+                        "fade-in-up": "fadeInUp 0.5s ease-out forwards",
+                        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            "0%": { opacity: "0", transform: "translateY(10px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-cafe-bg min-h-screen w-full flex flex-col font-display overflow-hidden select-none text-cafe-text">
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-50">
+<div class="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-[#EFE6D2] rounded-full blur-[120px]"></div>
+<div class="absolute top-[40%] -right-[10%] w-[50%] h-[50%] bg-[#E6DCC5] rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 flex flex-col h-full flex-1 items-center justify-center p-6">
+<div class="max-w-lg w-full flex flex-col items-center gap-8 animate-fade-in-up">
+<div class="relative flex items-center justify-center">
+<div class="absolute w-28 h-28 bg-forest-100 rounded-full animate-ping opacity-75"></div>
+<div class="relative w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-lg ring-4 ring-forest-100">
+<span class="material-symbols-outlined text-forest-500 !text-6xl" style="font-variation-settings: 'FILL' 1, 'wght' 600;">check</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h1 class="text-4xl md:text-5xl font-black tracking-tight text-cafe-text">Order Placed!</h1>
+<p class="text-xl text-cafe-subtext font-medium">Please wait, we will bring your order to you.</p>
+</div>
+<div class="w-full bg-cafe-surface rounded-3xl shadow-xl shadow-[#433422]/5 border border-cafe-border overflow-hidden">
+<div class="flex flex-col items-center justify-center py-8 border-b border-cafe-border bg-[#FCFBFA]">
+<span class="text-sm uppercase tracking-[0.2em] font-bold text-cafe-subtext mb-2">Order Number</span>
+<span class="text-7xl font-black text-forest-600 tracking-tighter">84</span>
+</div>
+<div class="p-8 space-y-5">
+<div class="space-y-3">
+<div class="flex justify-between items-center text-lg">
+<span class="text-cafe-subtext">Order Type</span>
+<span class="font-bold text-cafe-text">Dine In</span>
+</div>
+<div class="flex justify-between items-center text-lg">
+<span class="text-cafe-subtext">Items</span>
+<span class="font-bold text-cafe-text">3</span>
+</div>
+</div>
+<div class="h-px w-full bg-cafe-border border-dashed"></div>
+<div class="flex justify-between items-center text-2xl font-black text-cafe-text">
+<span>Total</span>
+<span>$14.50</span>
+</div>
+<div class="mt-2 bg-caramel-100/50 rounded-xl p-4 flex items-center gap-4 border border-caramel-100">
+<div class="w-10 h-10 rounded-full bg-caramel-100 flex items-center justify-center text-caramel-500">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-caramel-500 uppercase tracking-wider">Points Earned</span>
+<span class="text-lg font-bold text-cafe-text">+145 pts</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 text-cafe-subtext bg-white/60 px-5 py-2 rounded-full backdrop-blur-sm border border-white/50">
+<span class="material-symbols-outlined text-xl">hourglass_top</span>
+<span class="text-base font-semibold">Estimated wait: ~5 mins</span>
+</div>
+<button class="w-full group relative flex items-center justify-center gap-3 bg-stone-200 hover:bg-stone-300 active:scale-[0.98] transition-all duration-200 py-5 px-8 rounded-2xl shadow-sm text-stone-800">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-180 transition-transform duration-500">refresh</span>
+<span class="text-xl font-bold">Start New Order</span>
+</button>
+<div class="text-center pb-4">
+<p class="text-sm text-cafe-subtext/60 font-medium">Screen will automatically reset in 25s</p>
+<div class="h-1 w-32 bg-stone-200 rounded-full mx-auto mt-2 overflow-hidden">
+<div class="h-full bg-stone-300 w-full origin-left animate-[width_25s_linear]"></div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail - Barista</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8b4513",
+                        "primary-hover": "#6d360f",
+                        "background-light": "#fbfaf8",
+                        "background-dark": "#211811",
+                        "surface-light": "#f3ece8",
+                        "surface-dark": "#2e231b",
+                        "text-main": "#1b130e",
+                        "text-muted": "#956d50",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-gray-100 min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-surface-light dark:border-b-surface-dark px-10 py-3 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-text-main dark:text-white">
+<div class="size-8 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"></path>
+</svg>
+</div>
+<h2 class="text-text-main dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Barista</h2>
+</div>
+<nav class="flex items-center gap-9 hidden md:flex">
+<a class="text-text-main dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Menu</a>
+<a class="text-text-main dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">About Us</a>
+<a class="text-text-main dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Locations</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-text-muted flex border-none bg-surface-light dark:bg-surface-dark items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-main dark:text-white focus:outline-0 focus:ring-0 border-none bg-surface-light dark:bg-surface-dark focus:border-none h-full placeholder:text-text-muted px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Search menu..." value=""/>
+</div>
+</label>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-surface-light dark:bg-surface-dark text-text-main dark:text-white text-sm font-bold hover:bg-surface-light/80 transition-colors">
+<span class="material-symbols-outlined mr-2 text-[20px]">shopping_bag</span>
+<span class="truncate">Cart (2)</span>
+</button>
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white overflow-hidden border-2 border-white dark:border-surface-dark shadow-sm">
+<img class="w-full h-full object-cover" data-alt="User profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnbGEKeijhszhYFdQSk8XZTtvWwh0A1bO0mAGZwMyhFf7teH9pyG3sqQkmLu2sAA7US1QwOdgs53dAFxceQVw_XCNGR__IZMXCWVHsQj3bkBex6lJ3n_E1xWVInyQtxQFPbx2qugyDCAvmHzmVNtUEGnodnXgofkDLAw4TnSXMJSTBBJTnu96pNOIS1DDA2Ocr5jXmbWEpVUi5BNp0babe1EesNpA3Wni3iQRZBiTQjCPxLdsy_9-1IzxWbTDKL1-fEN9THimecdw"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-6 py-8 md:px-10 lg:px-20">
+<!-- Breadcrumb / Back Link -->
+<div class="mb-8">
+<a class="inline-flex items-center text-text-muted hover:text-primary transition-colors text-sm font-medium group" href="#">
+<span class="material-symbols-outlined text-[18px] mr-1 group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                Back to Menu
+            </a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+<!-- Left Column: Image -->
+<div class="relative w-full aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-sm group">
+<div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 dark:bg-black/80 backdrop-blur-sm rounded-full shadow-sm">
+<span class="material-symbols-outlined text-green-600 text-[18px]">eco</span>
+<span class="text-xs font-semibold uppercase tracking-wide text-green-800 dark:text-green-400">Veg</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-primary/90 backdrop-blur-sm rounded-full shadow-sm">
+<span class="material-symbols-outlined text-amber-200 text-[18px]">verified</span>
+<span class="text-xs font-semibold uppercase tracking-wide text-white">Featured</span>
+</div>
+</div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Top down view of latte art in a ceramic cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh_eSZ867abJi0kz_LwVyG-3cqQlPtQ-XpXAW8XnmpvOCv5RSZYuxgu89aFLUjIXBPo9UZ9HfX364lIiUoXPMwGhntQ92HD1iZLKsGTY3Efz0a_zapcyMUQgtfIq8e8lxn6sxp90tbp0lwPl5doViycATH74Lnrn-jS7-N-BLounu6SRh0QVhUZ40vJp26FShaZ2yxlLbr5Y-N1v9dQz0lOmVYjBNdG8aAZK6ukELX6lyIiy3_i-kIbKF59HwDcarE1mT2L5pl3q0"/>
+</div>
+<!-- Right Column: Details -->
+<div class="flex flex-col h-full justify-center">
+<div class="flex items-start justify-between mb-2">
+<span class="text-primary font-medium text-sm uppercase tracking-wider">Signature Coffees</span>
+<div class="flex items-center gap-1 text-amber-500 bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+<span class="text-xs font-bold text-amber-700 dark:text-amber-400">4.9 (128)</span>
+</div>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-text-main dark:text-white mb-4 tracking-tight">Hazelnut Truffle Latte</h1>
+<p class="text-text-muted dark:text-gray-400 text-lg leading-relaxed mb-8">
+                    A rich blend of our house espresso, steamed velvet milk, and roasted hazelnut syrup, topped with artisanal truffle shavings and a hint of cocoa dust.
+                </p>
+<!-- Metadata Grid -->
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="flex flex-col items-center justify-center p-3 bg-surface-light dark:bg-surface-dark rounded-xl border border-transparent dark:border-white/5">
+<span class="material-symbols-outlined text-primary mb-1">schedule</span>
+<span class="text-xs text-text-muted uppercase font-semibold">Prep time</span>
+<span class="font-medium text-text-main dark:text-white">15 min</span>
+</div>
+<div class="flex flex-col items-center justify-center p-3 bg-surface-light dark:bg-surface-dark rounded-xl border border-transparent dark:border-white/5">
+<span class="material-symbols-outlined text-primary mb-1">local_fire_department</span>
+<span class="text-xs text-text-muted uppercase font-semibold">Calories</span>
+<span class="font-medium text-text-main dark:text-white">240 Kcal</span>
+</div>
+<div class="flex flex-col items-center justify-center p-3 bg-surface-light dark:bg-surface-dark rounded-xl border border-transparent dark:border-white/5">
+<span class="material-symbols-outlined text-primary mb-1">local_cafe</span>
+<span class="text-xs text-text-muted uppercase font-semibold">Serving</span>
+<span class="font-medium text-text-main dark:text-white">350 ml</span>
+</div>
+</div>
+<!-- Price & Points -->
+<div class="flex items-baseline gap-4 mb-8">
+<span class="text-3xl font-bold text-primary">$5.50</span>
+<span class="text-xl text-text-muted line-through decoration-2">$6.50</span>
+<div class="ml-auto px-3 py-1 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center gap-1.5 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-[16px]">loyalty</span>
+<span class="text-xs font-bold text-primary">Earns 50 pts</span>
+</div>
+</div>
+<!-- Controls -->
+<div class="flex gap-4 items-stretch h-14">
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-surface-light dark:bg-surface-dark rounded-xl px-2 w-32 justify-between border border-transparent dark:border-white/5">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-text-main dark:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="font-semibold text-lg w-6 text-center">1</span>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-text-main dark:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Add to Cart Button -->
+<button class="flex-1 bg-primary hover:bg-primary-hover text-white rounded-xl font-bold text-base tracking-wide shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3">
+<span>Add to Cart</span>
+<span class="w-px h-5 bg-white/20"></span>
+<span>$5.50</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Similar Items Section -->
+<div class="mt-24 mb-12">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-2xl font-bold text-text-main dark:text-white">You might also like</h3>
+<div class="flex gap-2">
+<button class="size-10 rounded-full border border-surface-light dark:border-surface-dark flex items-center justify-center hover:bg-surface-light dark:hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="size-10 rounded-full border border-surface-light dark:border-surface-dark flex items-center justify-center hover:bg-surface-light dark:hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-8 snap-x scrollbar-hide -mx-4 px-4 md:-mx-0 md:px-0">
+<!-- Card 1 -->
+<div class="min-w-[260px] md:min-w-[280px] snap-start bg-white dark:bg-surface-dark rounded-xl p-3 border border-surface-light dark:border-white/5 hover:border-primary/30 transition-all group cursor-pointer shadow-sm">
+<div class="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-surface-light">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Croissant on a wooden plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACgy_sAT3qZWvToYECy_QQIXwLCXJAPe5dbONzGgjOJ5NNuwsHl7nOuUEWj0KQgJecV3tHwO56DDqB-zjWGTrNa_XusbDNdNla_Xkha5rwPruYnve8LbRyju7uT418AdzD4ieyZzIZL8qdYEvL4nQ1QOT0MOgMTJbpz30f8XxNZVpRKdkRBI4EeEQEehfoIZehc0lWVdGJZy4FTGr4v2nMkjVoKlrvWwr8ba8SQHzALyHD4i7WFR86UbVtEIHGDBJitf_W4bHAolM"/>
+<button class="absolute bottom-2 right-2 size-8 bg-white dark:bg-black/60 rounded-full shadow-md flex items-center justify-center text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="px-1">
+<h4 class="font-bold text-text-main dark:text-white mb-1">Butter Croissant</h4>
+<p class="text-xs text-text-muted mb-3 line-clamp-1">Flaky, buttery pastry baked fresh daily.</p>
+<div class="flex justify-between items-center">
+<span class="font-semibold text-text-main dark:text-white">$3.25</span>
+<span class="text-xs font-medium text-text-muted">210 Kcal</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[260px] md:min-w-[280px] snap-start bg-white dark:bg-surface-dark rounded-xl p-3 border border-surface-light dark:border-white/5 hover:border-primary/30 transition-all group cursor-pointer shadow-sm">
+<div class="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-surface-light">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Glass of iced mocha with cream" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqLn8XtWNb6ue4WP00eFDbPomxySDWxv_KDYxUiI3hg1qLpDekZLUsDuy3guIvoWgdijA6XmAYNzAPFgoD4w9_N2BoQXM8867uwxBjhlcRAPFTJ6F3ynk-ZSlkcg3SqEU8VmOpALTmdiENqd65Dknu1PFck9wZTKRSXoeDMCOYCLi611_BqKQaOEbGpaCiajE98-v-f-etUQg3CQhX9KJNzhMbMBEcmNp1DQhYG_pMTUrpWtfQd4nX0AC2v94yiSphH6DpZdJxsSk"/>
+<button class="absolute bottom-2 right-2 size-8 bg-white dark:bg-black/60 rounded-full shadow-md flex items-center justify-center text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="px-1">
+<h4 class="font-bold text-text-main dark:text-white mb-1">Iced Mocha</h4>
+<p class="text-xs text-text-muted mb-3 line-clamp-1">Espresso, chocolate, milk and ice.</p>
+<div class="flex justify-between items-center">
+<span class="font-semibold text-text-main dark:text-white">$4.95</span>
+<span class="text-xs font-medium text-text-muted">180 Kcal</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="min-w-[260px] md:min-w-[280px] snap-start bg-white dark:bg-surface-dark rounded-xl p-3 border border-surface-light dark:border-white/5 hover:border-primary/30 transition-all group cursor-pointer shadow-sm">
+<div class="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-surface-light">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Beef burger with fries" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqgyfZ00dRmuIMyUHaUlI1CIQRvaSC8sizCR8q0lYegyYfZ3Hd7TBdyuWPQ4OjHVLG195_P-WncTPQOT7WabY44gkGHySuznLQRLt5soyVkRzbW8R48Q6Q2u_mjhMsvb_8QDblAGdANmdftThsp9OHBxAP9HJVAhRk07u_Gnd0KwXDPkWPYtoehnLBow0nLZ1-BzLrUZZB3e8zkYrlSQYG9H8naCck5arDGMCsRf_ISFhZfKvb2FKO1esa0IEgHwWKJGkYlwMC7jo"/>
+<button class="absolute bottom-2 right-2 size-8 bg-white dark:bg-black/60 rounded-full shadow-md flex items-center justify-center text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-black/50 backdrop-blur-sm rounded text-[10px] font-bold text-white uppercase tracking-wider">
+                            Lunch
+                        </div>
+</div>
+<div class="px-1">
+<h4 class="font-bold text-text-main dark:text-white mb-1">Artisan Burger</h4>
+<p class="text-xs text-text-muted mb-3 line-clamp-1">Wagyu beef patty with caramelized onions.</p>
+<div class="flex justify-between items-center">
+<span class="font-semibold text-text-main dark:text-white">$12.50</span>
+<span class="text-xs font-medium text-text-muted">650 Kcal</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="min-w-[260px] md:min-w-[280px] snap-start bg-white dark:bg-surface-dark rounded-xl p-3 border border-surface-light dark:border-white/5 hover:border-primary/30 transition-all group cursor-pointer shadow-sm">
+<div class="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-surface-light">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pouring espresso into a cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd0hXkgAJxacTaIj-Vz4Cyph29b9ANP3Xsdny66flIxhMUsG0kJP1U-N2GCck6YVpkq-Kv0GSvmZ6Qx5MuHMOxldkXnTHVWlylV3F2HiOHjAyFbRF44gOYWVh7SIgi0uYlAmxXobk4QreVjmLziSQYUB4XyvCA04Mknz99f5JlSRZdU7QF4rzzpoDVD7MKO0tj2Ghfyg0-CSOCXuUPrHdl9_HI1opodKJ9VB18-5jwvZdwKHlz6TD5c_B9TaT2qGjyEOBp_wVY7fM"/>
+<button class="absolute bottom-2 right-2 size-8 bg-white dark:bg-black/60 rounded-full shadow-md flex items-center justify-center text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="px-1">
+<h4 class="font-bold text-text-main dark:text-white mb-1">Double Espresso</h4>
+<p class="text-xs text-text-muted mb-3 line-clamp-1">Strong and bold double shot.</p>
+<div class="flex justify-between items-center">
+<span class="font-semibold text-text-main dark:text-white">$3.00</span>
+<span class="text-xs font-medium text-text-muted">5 Kcal</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

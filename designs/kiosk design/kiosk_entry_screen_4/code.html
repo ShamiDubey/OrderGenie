@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barista Kiosk Register</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8B5E3C", // Saddle Brown / Coffee
+                        "primary-hover": "#6F4B30",
+                        "background-light": "#FDFBF9", // Warm Paper
+                        "background-dark": "#120C0A", // Espresso
+                        "surface-dark": "#1E1815", // Dark Roast
+                        "surface-dark-hover": "#2C231F",
+                        "input-bg-light": "#F5F2F0",
+                        "input-bg-dark": "#2A2420",
+                        "border-muted": "#E6E0DC",
+                        "border-muted-dark": "#403630",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "3xl": "2.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen w-full flex flex-col font-display overflow-hidden select-none relative">
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+<div class="absolute inset-0 bg-background-dark/60 backdrop-blur-[6px] transition-all"></div>
+<div class="relative w-full max-w-[580px] bg-white dark:bg-surface-dark rounded-3xl shadow-2xl shadow-black/50 border border-stone-200 dark:border-white/10 overflow-hidden flex flex-col animate-fade-in-up">
+<div class="flex items-center justify-between p-8 pb-2">
+<h2 class="text-3xl font-bold tracking-tight text-stone-900 dark:text-white">Register New Account</h2>
+<button class="group flex items-center justify-center w-12 h-12 rounded-full bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/10 text-stone-500 dark:text-stone-400 transition-colors">
+<span class="material-symbols-outlined group-hover:rotate-90 transition-transform duration-300">close</span>
+</button>
+</div>
+<div class="p-8 pt-4 flex flex-col gap-8">
+<p class="text-stone-500 dark:text-[#A69080] text-lg font-medium">Join us for exclusive rewards and faster ordering.</p>
+<form class="flex flex-col gap-6" onsubmit="event.preventDefault();">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-stone-700 dark:text-stone-300 ml-1 uppercase tracking-wider opacity-80">Full Name</label>
+<input class="w-full h-[72px] px-6 rounded-2xl bg-input-bg-light dark:bg-input-bg-dark border-2 border-border-muted dark:border-border-muted-dark text-xl text-stone-900 dark:text-white placeholder-stone-400 focus:bg-white dark:focus:bg-surface-dark focus:border-primary focus:ring-0 transition-all outline-none" placeholder="e.g. Alex Barista" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-stone-700 dark:text-stone-300 ml-1 uppercase tracking-wider opacity-80">Email Address</label>
+<input class="w-full h-[72px] px-6 rounded-2xl bg-input-bg-light dark:bg-input-bg-dark border-2 border-border-muted dark:border-border-muted-dark text-xl text-stone-900 dark:text-white placeholder-stone-400 focus:bg-white dark:focus:bg-surface-dark focus:border-primary focus:ring-0 transition-all outline-none" placeholder="alex@example.com" type="email"/>
+</div>
+<div class="pt-2">
+<button class="w-full h-[80px] rounded-2xl bg-primary hover:bg-primary-hover active:scale-[0.98] text-white shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3 group relative overflow-hidden">
+<span class="text-xl font-bold tracking-wide">Create Account &amp; Continue</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<div class="absolute inset-0 bg-primary flex items-center justify-center gap-3 opacity-0 group-active:opacity-100 transition-opacity">
+<svg class="animate-spin h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+</svg>
+<span class="text-xl font-bold">Creating Account...</span>
+</div>
+</button>
+</div>
+</form>
+</div>
+<div class="h-2 w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+</div>
+</div>
+<div class="layout-container flex h-full grow flex-col relative z-10 pointer-events-none opacity-40 filter blur-[2px]">
+<div class="px-6 md:px-40 flex flex-1 justify-center items-center py-10 h-full">
+<div class="layout-content-container flex flex-col max-w-[640px] w-full flex-1 gap-12">
+<div class="flex flex-col items-center text-center gap-6">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-2 shadow-2xl shadow-primary/20 ring-4 ring-surface-dark bg-surface-dark flex items-center justify-center">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Barista Cafe Logo with steam coffee cup icon minimalist" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvnBp2GP6OWSE9I2tbNTArJFte8KwiD00jfWP5OHhGBnndEzrK1KpILaUjLlfI0izq5CaF7nNnnDG52Camf7N_sN6onbr1ql0dxvNXpMU9R9cfGdX_30g6nh09U8QFtuCzkglVbfmhDf7mRvL9Y_bWDszcihQ6OVdWLvoS5c-ogo7Rnl7737c0CrjQxrf781sa1sVKy59X9fUJ4LRBK3Wmhtqgeb0G6QOdYQ0_HK26JHyh4i2hYvF9BG2BiaYwlOJdJuoP5hoUruQ");'>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<h1 class="text-stone-900 dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+                        Welcome to Barista
+                    </h1>
+<p class="text-stone-500 dark:text-[#A69080] text-lg md:text-xl font-medium leading-normal">
+                        How would you like to order today?
+                    </p>
+</div>
+</div>
+<div class="flex flex-col gap-5 w-full">
+<button class="group relative flex items-center justify-between gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm border border-stone-200 dark:border-transparent text-left w-full h-[120px]">
+<div class="flex items-center gap-6">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-primary/10 dark:bg-[#2C231F] text-primary transition-colors duration-300">
+<span class="material-symbols-outlined !text-4xl">person</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-stone-900 dark:text-white text-xl font-bold leading-tight">Guest Order</p>
+<p class="text-stone-500 dark:text-[#A69080] text-base font-normal leading-normal">Skip login, just order</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-stone-100 dark:bg-[#2C231F] text-stone-400 dark:text-stone-500">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+<button class="group relative flex items-center justify-between gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm border border-stone-200 dark:border-transparent text-left w-full h-[120px]">
+<div class="flex items-center gap-6">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-amber-500/10 dark:bg-[#2C231F] text-amber-700 dark:text-amber-500 transition-colors duration-300">
+<span class="material-symbols-outlined !text-4xl">face</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-stone-900 dark:text-white text-xl font-bold leading-tight">Face Scan</p>
+<p class="text-stone-500 dark:text-[#A69080] text-base font-normal leading-normal">Pay with your smile</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-stone-100 dark:bg-[#2C231F] text-stone-400 dark:text-stone-500">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+<button class="group relative flex items-center justify-between gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm border border-stone-200 dark:border-transparent text-left w-full h-[120px]">
+<div class="flex items-center gap-6">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-stone-500/10 dark:bg-[#2C231F] text-stone-600 dark:text-stone-400 transition-colors duration-300">
+<span class="material-symbols-outlined !text-4xl">key</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-stone-900 dark:text-white text-xl font-bold leading-tight">Member Login</p>
+<p class="text-stone-500 dark:text-[#A69080] text-base font-normal leading-normal">Earn points &amp; rewards</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-stone-100 dark:bg-[#2C231F] text-stone-400 dark:text-stone-500">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="flex justify-center pb-8 opacity-60">
+<p class="text-sm text-stone-500 dark:text-stone-600">v2.4.1 • Accessibility Options</p>
+</div>
+</div>
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[120px]"></div>
+<div class="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-amber-900/10 rounded-full blur-[100px]"></div>
+</div>
+
+</body></html>

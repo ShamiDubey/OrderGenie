@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barista - Face Login</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8b4513",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211811",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2c221b",
+                        "text-primary-light": "#1b130e",
+                        "text-primary-dark": "#f3ece8",
+                        "text-secondary-light": "#956d50",
+                        "text-secondary-dark": "#bcaaa4",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark font-display min-h-screen flex flex-col transition-colors duration-200">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e6dcd5] dark:border-b-[#3e322a] px-6 py-4 md:px-12 lg:px-20 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md fixed top-0 w-full z-50">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-[32px]">coffee</span>
+</div>
+<h2 class="text-text-primary-light dark:text-text-primary-dark text-xl font-bold leading-tight tracking-[-0.015em]">Barista</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-text-primary-light dark:text-text-primary-dark text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Menu</a>
+<a class="text-text-primary-light dark:text-text-primary-dark text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">About</a>
+<a class="text-text-primary-light dark:text-text-primary-dark text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Locations</a>
+</nav>
+<button class="bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 text-primary dark:text-primary-light text-sm font-bold py-2 px-5 rounded-lg transition-colors">
+                Sign Up
+            </button>
+</div>
+<!-- Mobile Menu Icon -->
+<button class="md:hidden text-text-primary-light dark:text-text-primary-dark">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex items-center justify-center pt-24 pb-12 px-4 relative overflow-hidden">
+<!-- Background decoration elements (Organic shapes) -->
+<div class="absolute -top-40 -right-40 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<div class="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl -z-10"></div>
+<div class="w-full max-w-[480px] flex flex-col">
+<!-- Login Card -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-xl dark:shadow-none border border-[#e6dcd5] dark:border-[#3e322a] overflow-hidden p-8 flex flex-col items-center">
+<!-- Text Header -->
+<div class="text-center mb-8">
+<h1 class="text-text-primary-light dark:text-text-primary-dark text-[32px] font-bold leading-tight mb-2 tracking-tight">Welcome Back</h1>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal">Sign in with face recognition</p>
+</div>
+<!-- Webcam Feed Container -->
+<div class="relative w-full aspect-[4/3] bg-black rounded-xl overflow-hidden mb-6 group ring-1 ring-[#e6dcd5] dark:ring-[#3e322a]">
+<!-- Simulated Webcam Feed Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-80" data-alt="Portrait of a person looking at the camera in soft lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4U17deh_AIcopuMqQV3MxAMgIgKQEzwfzRiaZTR8MOD2ZA9uLcRS62bkfA_UWjVtZKTznTJfXrjkmapQZ_wfa0nZGUzZCepBkoRnqpv_Vt8zEzfkkOtByTH0VQPj8WlJGHTPHUyJNIPQlbiKN7tGvt_4NgTqqZt7eFaCGv8WWQabt9BZQ_X2pRmHudho9qFgSMGYanjf-1bJsmMHXH6Lz7IhAd036HWJG12TRNmJOLcrNDVxnN7-d8SH2KgtpvUotTm6Mv8HtTbg');"></div>
+<!-- Face Detection Overlay (Scanning Frame) -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-48 h-64 border-2 border-primary/50 rounded-full relative animate-pulse">
+<!-- Corner Accents -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface-light dark:bg-surface-dark px-2 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-wider shadow-sm border border-primary/20">Scanning</div>
+<div class="absolute top-1/4 left-1/4 size-2 bg-white rounded-full opacity-60"></div>
+</div>
+</div>
+<!-- Camera Active Indicator -->
+<div class="absolute top-4 right-4 flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+<div class="size-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+<span class="text-white text-xs font-medium">Live</span>
+</div>
+<!-- Switch Camera Button (inside frame for cleaner UI) -->
+<button class="absolute bottom-4 right-4 p-2 rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors backdrop-blur-sm border border-white/10" title="Switch Camera">
+<span class="material-symbols-outlined text-[20px]">cameraswitch</span>
+</button>
+</div>
+<!-- Instructions -->
+<div class="flex items-center gap-2 mb-8 text-text-secondary-light dark:text-text-secondary-dark bg-background-light dark:bg-background-dark/50 px-4 py-2 rounded-full border border-primary/10">
+<span class="material-symbols-outlined text-[18px]">face</span>
+<p class="text-sm font-medium">Position your face in frame</p>
+</div>
+<!-- Primary Action -->
+<button class="w-full flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white h-12 rounded-xl font-bold text-base shadow-lg shadow-primary/20 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">photo_camera</span>
+                    Capture &amp; Login
+                </button>
+<!-- Divider -->
+<div class="flex items-center gap-4 w-full my-6">
+<div class="h-px bg-[#e6dcd5] dark:bg-[#3e322a] flex-1"></div>
+<span class="text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-widest">or</span>
+<div class="h-px bg-[#e6dcd5] dark:bg-[#3e322a] flex-1"></div>
+</div>
+<!-- Alternative Link -->
+<div class="text-center">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                        Don't have an account? 
+                        <a class="text-primary font-bold hover:underline ml-1" href="#">Register with Face ID</a>
+</p>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="mt-8 flex justify-center gap-6 text-xs text-text-secondary-light dark:text-text-secondary-dark opacity-60">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Help</a>
+</div>
+</div>
+</main>
+</body></html>

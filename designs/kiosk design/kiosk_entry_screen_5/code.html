@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barista Kiosk Entry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8B4513","secondary": "#D2691E","coffee-dark": "#3E2723",
+                        "coffee-light": "#D7CCC8",
+                        "cream": "#FFF8E1",
+                        "background-light": "#fdfbf7",
+                        "background-dark": "#101622",
+                        "surface-dark": "#192233",
+                        "surface-dark-hover": "#232f48",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen w-full flex flex-col font-display overflow-hidden select-none relative">
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+<div class="relative w-full max-w-md bg-[#fffaf5] rounded-3xl shadow-2xl overflow-hidden border border-[#e6dccf] transform transition-all scale-100">
+<button class="absolute top-4 right-4 z-10 p-2 rounded-full text-[#8c7b70] hover:bg-[#f3ebe4] hover:text-[#5d4037] transition-colors focus:outline-none focus:ring-2 focus:ring-[#8B4513] focus:ring-offset-2">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="h-24 bg-[#8B4513] relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 opacity-20" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDU9SSE0ZMKdeLzEncaMpppLwuU2MtU9MyN-RAxkjZRAnfejeCR8B-VlUwYHqoByG6rv_IPL0p9a1fPDcUyZRW5DDTEm0Z9Izd_W4d56gcW6avbBrUYSIyC5zmxEWkPVoHZovuy2Gd5aC5B9TCdMDfx6Z7-hq2R4v9kMJZ2p2OuPb6bqZTrFiBLq58bicA2aLSS9sa3-KImNyoh3jUQJ1RNuvhChrrFSqrPhU3Z25p-K2PPq3QZNH3ZWaw-mYheES8fQVmRN28OoSM');"></div>
+<span class="material-symbols-outlined text-white/20 absolute -bottom-6 -left-6 text-[120px] rotate-12">coffee</span>
+<span class="material-symbols-outlined text-white/20 absolute -top-4 -right-4 text-[80px] -rotate-12">local_cafe</span>
+<h2 class="text-2xl font-bold text-white relative z-10 tracking-wide">Barista Login</h2>
+</div>
+<div class="p-8 pt-10 flex flex-col gap-6">
+<div class="hidden flex items-center gap-2 p-3 rounded-lg bg-red-50 border border-red-100 text-red-700 text-sm">
+<span class="material-symbols-outlined text-lg">error</span>
+<span>Invalid username or password</span>
+</div>
+<div class="flex flex-col gap-5">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-[#5d4037] ml-1">Username</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-[#a1887f] material-symbols-outlined text-[20px]">person</span>
+<input class="w-full pl-11 pr-4 py-4 rounded-xl bg-[#f5f0eb] border border-[#e0d6cc] text-[#3e2723] placeholder-[#bcaaa4] focus:border-[#D2691E] focus:ring-2 focus:ring-[#D2691E]/20 focus:bg-white transition-all outline-none text-lg" placeholder="Enter your username" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-[#5d4037] ml-1">Password</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-[#a1887f] material-symbols-outlined text-[20px]">lock</span>
+<input class="w-full pl-11 pr-4 py-4 rounded-xl bg-[#f5f0eb] border border-[#e0d6cc] text-[#3e2723] placeholder-[#bcaaa4] focus:border-[#D2691E] focus:ring-2 focus:ring-[#D2691E]/20 focus:bg-white transition-all outline-none text-lg" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<div class="pt-2 flex flex-col gap-3">
+<button class="w-full py-4 rounded-xl bg-[#8B4513] text-white text-lg font-bold shadow-lg shadow-[#8B4513]/30 hover:bg-[#6d360f] hover:shadow-[#8B4513]/40 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span>Login</span>
+<span class="material-symbols-outlined animate-spin hidden text-xl">progress_activity</span>
+</button>
+<button class="w-full py-3 text-[#8B4513] text-sm font-medium hover:text-[#6d360f] transition-colors">
+                        Forgot Password?
+                    </button>
+</div>
+</div>
+<div class="h-2 w-full bg-gradient-to-r from-[#8B4513] via-[#D2691E] to-[#8B4513]"></div>
+</div>
+</div>
+<div class="layout-container flex h-full grow flex-col relative z-10 blur-sm pointer-events-none">
+<div class="px-6 md:px-40 flex flex-1 justify-center items-center py-10 h-full">
+<div class="layout-content-container flex flex-col max-w-[640px] w-full flex-1 gap-12">
+<div class="flex flex-col items-center text-center gap-6 animate-fade-in-down">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-2 shadow-2xl shadow-primary/20 ring-4 ring-surface-dark bg-surface-dark flex items-center justify-center">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Barista Cafe Logo with steam coffee cup icon minimalist" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvnBp2GP6OWSE9I2tbNTArJFte8KwiD00jfWP5OHhGBnndEzrK1KpILaUjLlfI0izq5CaF7nNnnDG52Camf7N_sN6onbr1ql0dxvNXpMU9R9cfGdX_30g6nh09U8QFtuCzkglVbfmhDf7mRvL9Y_bWDszcihQ6OVdWLvoS5c-ogo7Rnl7737c0CrjQxrf781sa1sVKy59X9fUJ4LRBK3Wmhtqgeb0G6QOdYQ0_HK26JHyh4i2hYvF9BG2BiaYwlOJdJuoP5hoUruQ");'>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<h1 class="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+                            Welcome to Barista
+                        </h1>
+<p class="text-slate-500 dark:text-[#92a4c9] text-lg md:text-xl font-medium leading-normal">
+                            How would you like to order today?
+                        </p>
+</div>
+</div>
+<div class="flex flex-col gap-5 w-full">
+<button class="group relative flex items-center justify-between gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm hover:shadow-md dark:shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-200 active:scale-[0.98] border border-slate-200 dark:border-transparent text-left w-full h-[120px]">
+<div class="flex items-center gap-6">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-primary/10 dark:bg-[#232f48] text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined !text-4xl">person</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Guest Order</p>
+<p class="text-slate-500 dark:text-[#92a4c9] text-base font-normal leading-normal">Skip login, just order</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 dark:bg-[#232f48] text-slate-400 dark:text-slate-500 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+<button class="group relative flex items-center justify-between gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm hover:shadow-md dark:shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-200 active:scale-[0.98] border border-slate-200 dark:border-transparent text-left w-full h-[120px]">
+<div class="flex items-center gap-6">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-purple-500/10 dark:bg-[#232f48] text-purple-600 dark:text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined !text-4xl">face</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Face Scan</p>
+<p class="text-slate-500 dark:text-[#92a4c9] text-base font-normal leading-normal">Pay with your smile</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 dark:bg-[#232f48] text-slate-400 dark:text-slate-500 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+<button class="group relative flex items-center justify-between gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm hover:shadow-md dark:shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-200 active:scale-[0.98] border border-slate-200 dark:border-transparent text-left w-full h-[120px]">
+<div class="flex items-center gap-6">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-emerald-500/10 dark:bg-[#232f48] text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined !text-4xl">key</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Member Login</p>
+<p class="text-slate-500 dark:text-[#92a4c9] text-base font-normal leading-normal">Earn points &amp; rewards</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 dark:bg-[#232f48] text-slate-400 dark:text-slate-500 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="flex justify-center pb-8 opacity-60">
+<p class="text-sm text-slate-500 dark:text-slate-600">v2.4.1 • Accessibility Options</p>
+</div>
+</div>
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden blur-sm">
+<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-purple-500/5 rounded-full blur-[100px]"></div>
+</div>
+
+</body></html>

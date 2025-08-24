@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barista Kiosk Entry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#A67C52","primary-dark": "#8B5E3C","secondary": "#D4A373","accent": "#BC6C25","background-light": "#FAF7F2","background-dark": "#1C1917","surface-light": "#FFFFFF",
+                        "surface-dark": "#292524","surface-dark-hover": "#44403C",
+                        "text-main-light": "#433422","text-sub-light": "#8D7B68","text-main-dark": "#F3E5D8","text-sub-dark": "#A89F91",},
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                    animation: {
+                        "fade-in-down": "fadeInDown 0.8s ease-out forwards",
+                    },
+                    keyframes: {
+                        fadeInDown: {
+                            "0%": { opacity: "0", transform: "translateY(-20px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen w-full flex flex-col font-display overflow-hidden select-none transition-colors duration-500">
+<div class="layout-container flex h-full grow flex-col relative z-10">
+<div class="px-6 md:px-40 flex flex-1 justify-center items-center py-10 h-full">
+<div class="layout-content-container flex flex-col max-w-[640px] w-full flex-1 gap-12">
+<div class="flex flex-col items-center text-center gap-6 animate-fade-in-down">
+<div class="w-36 h-36 rounded-full overflow-hidden mb-2 shadow-2xl shadow-primary/30 ring-4 ring-offset-4 ring-offset-background-light dark:ring-offset-background-dark ring-primary flex items-center justify-center bg-surface-dark">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover opacity-90 hover:scale-110 transition-transform duration-700" data-alt="Barista Cafe Logo with steam coffee cup icon minimalist" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvnBp2GP6OWSE9I2tbNTArJFte8KwiD00jfWP5OHhGBnndEzrK1KpILaUjLlfI0izq5CaF7nNnnDG52Camf7N_sN6onbr1ql0dxvNXpMU9R9cfGdX_30g6nh09U8QFtuCzkglVbfmhDf7mRvL9Y_bWDszcihQ6OVdWLvoS5c-ogo7Rnl7737c0CrjQxrf781sa1sVKy59X9fUJ4LRBK3Wmhtqgeb0G6QOdYQ0_HK26JHyh4i2hYvF9BG2BiaYwlOJdJuoP5hoUruQ");'>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<h1 class="text-text-main-light dark:text-text-main-dark text-4xl md:text-5xl font-black leading-tight tracking-[-0.02em]">
+                            Welcome to Barista
+                        </h1>
+<p class="text-text-sub-light dark:text-text-sub-dark text-lg md:text-xl font-medium leading-normal">
+                            How would you like to order today?
+                        </p>
+</div>
+</div>
+<div class="flex flex-col gap-5 w-full">
+<button class="group relative flex items-center justify-between gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm hover:shadow-xl hover:shadow-primary/10 dark:shadow-none dark:hover:bg-surface-dark-hover transition-all duration-300 active:scale-[0.98] border border-[#E6DCCD] dark:border-white/5 text-left w-full h-[120px]">
+<div class="flex items-center gap-6">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-[#F5EBE0] dark:bg-[#3E342F] text-[#8B5E3C] dark:text-[#D4A373] group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined !text-4xl">person</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-text-main-light dark:text-text-main-dark text-xl font-bold leading-tight">Guest Order</p>
+<p class="text-text-sub-light dark:text-text-sub-dark text-base font-normal leading-normal">Skip login, just order</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#F5EBE0] dark:bg-[#3E342F] text-[#8B5E3C]/60 dark:text-[#D4A373]/60 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+<button class="group relative flex items-center justify-between gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm hover:shadow-xl hover:shadow-primary/10 dark:shadow-none dark:hover:bg-surface-dark-hover transition-all duration-300 active:scale-[0.98] border border-[#E6DCCD] dark:border-white/5 text-left w-full h-[120px]">
+<div class="flex items-center gap-6">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-[#F0E6D2] dark:bg-[#3E342F] text-[#9C6644] dark:text-[#E6BE8A] group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined !text-4xl">face</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-text-main-light dark:text-text-main-dark text-xl font-bold leading-tight">Face Scan</p>
+<p class="text-text-sub-light dark:text-text-sub-dark text-base font-normal leading-normal">Pay with your smile</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#F0E6D2] dark:bg-[#3E342F] text-[#9C6644]/60 dark:text-[#E6BE8A]/60 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+<button class="group relative flex items-center justify-between gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm hover:shadow-xl hover:shadow-primary/10 dark:shadow-none dark:hover:bg-surface-dark-hover transition-all duration-300 active:scale-[0.98] border border-[#E6DCCD] dark:border-white/5 text-left w-full h-[120px]">
+<div class="flex items-center gap-6">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-[#EADDD5] dark:bg-[#3E342F] text-[#7F5539] dark:text-[#C8A68E] group-hover:bg-primary-dark group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined !text-4xl">key</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-text-main-light dark:text-text-main-dark text-xl font-bold leading-tight">Member Login</p>
+<p class="text-text-sub-light dark:text-text-sub-dark text-base font-normal leading-normal">Earn points &amp; rewards</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EADDD5] dark:bg-[#3E342F] text-[#7F5539]/60 dark:text-[#C8A68E]/60 group-hover:bg-primary-dark group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="flex justify-center pb-8 opacity-60">
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark font-medium">v2.4.1 • Accessibility Options</p>
+</div>
+</div>
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-secondary/10 dark:bg-secondary/5 rounded-full blur-[120px]"></div>
+<div class="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-primary/10 dark:bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-[-10%] left-[20%] w-[30%] h-[30%] bg-accent/5 dark:bg-accent/5 rounded-full blur-[120px]"></div>
+</div>
+
+</body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barista Kiosk No Match Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "coffee-primary": "#6F4E37",     // Saddle brown / Coffee
+                        "coffee-hover": "#5D4037",       // Darker brown for hover
+                        "surface-cream": "#FFFCF5",      // Warm cream for modal bg
+                        "btn-gray": "#E5E0DA",           // Warm gray for guest button
+                        "btn-gray-hover": "#D7CCC8",     // Darker warm gray
+                        "text-brown": "#4E342E",         // Dark brown text
+                        "text-muted": "#8D6E63",         // Muted brown text
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "xl": "1rem", 
+                        "2xl": "1.5rem", 
+                        "3xl": "2rem"
+                    },
+                    boxShadow: {
+                        'modal': '0 25px 50px -12px rgba(62, 39, 35, 0.35)',
+                        'card': '0 4px 6px -1px rgba(62, 39, 35, 0.1), 0 2px 4px -1px rgba(62, 39, 35, 0.06)'
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-[#2C1810] min-h-screen w-full flex flex-col font-display overflow-hidden select-none relative">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-40 blur-md scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvnBp2GP6OWSE9I2tbNTArJFte8KwiD00jfWP5OHhGBnndEzrK1KpILaUjLlfI0izq5CaF7nNnnDG52Camf7N_sN6onbr1ql0dxvNXpMU9R9cfGdX_30g6nh09U8QFtuCzkglVbfmhDf7mRvL9Y_bWDszcihQ6OVdWLvoS5c-ogo7Rnl7737c0CrjQxrf781sa1sVKy59X9fUJ4LRBK3Wmhtqgeb0G6QOdYQ0_HK26JHyh4i2hYvF9BG2BiaYwlOJdJuoP5hoUruQ");'></div>
+<div class="absolute inset-0 bg-gradient-to-b from-[#2C1810]/80 to-[#1a0f0a]/95"></div>
+</div>
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-40">
+<div class="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-[#8D6E63] rounded-full blur-[150px]"></div>
+<div class="absolute top-[40%] -right-[10%] w-[50%] h-[50%] bg-[#6F4E37] rounded-full blur-[120px]"></div>
+</div>
+<div class="relative z-10 flex items-center justify-center w-full h-full min-h-screen p-6">
+<div class="w-full max-w-[600px] bg-surface-cream rounded-3xl shadow-modal p-10 flex flex-col items-center text-center border-4 border-[#6F4E37]/10">
+<div class="w-24 h-24 rounded-full bg-[#6F4E37]/10 flex items-center justify-center mb-8 ring-4 ring-white shadow-card">
+<span class="material-symbols-outlined text-coffee-primary !text-[48px]">face_retouching_off</span>
+</div>
+<div class="space-y-4 mb-10">
+<h1 class="text-4xl font-black text-text-brown tracking-tight">No Match Found</h1>
+<p class="text-xl text-text-muted font-medium leading-relaxed max-w-md mx-auto">
+                    We couldn't recognize you.<br/>What would you like to do?
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-5 w-full">
+<button class="relative group h-40 rounded-2xl bg-coffee-primary hover:bg-coffee-hover active:scale-[0.98] transition-all duration-200 flex flex-col items-center justify-center gap-3 shadow-lg shadow-coffee-primary/25 border-b-4 border-coffee-hover">
+<div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined text-white !text-3xl">person_add</span>
+</div>
+<span class="text-white text-2xl font-bold tracking-wide">Register</span>
+</button>
+<button class="relative group h-40 rounded-2xl bg-btn-gray hover:bg-btn-gray-hover active:scale-[0.98] transition-all duration-200 flex flex-col items-center justify-center gap-3 border-b-4 border-btn-gray-hover/50">
+<div class="w-12 h-12 rounded-full bg-text-brown/10 flex items-center justify-center group-hover:bg-text-brown/15 transition-colors">
+<span class="material-symbols-outlined text-text-brown !text-3xl">person</span>
+</div>
+<span class="text-text-brown text-2xl font-bold tracking-wide">Guest</span>
+</button>
+</div>
+</div>
+</div>
+
+</body></html>

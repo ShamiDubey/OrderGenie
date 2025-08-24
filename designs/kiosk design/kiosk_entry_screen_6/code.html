@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kiosk Welcome Video (Cafe Theme)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "coffee-dark": "#3E2723", // Deep warm brown
+                        "coffee-accent": "#5D4037", // Medium warm brown
+                        "coffee-foam": "#D7CCC8", // Light latte color
+                        "cream": "#FDFBF7", // Warm white
+                        "cream-translucent": "rgba(253, 251, 247, 0.9)",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>body::-webkit-scrollbar { display: none; }
+        body { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-coffee-dark h-screen w-full flex flex-col font-display overflow-hidden select-none">
+<div class="relative w-full h-full flex items-center justify-center bg-black">
+<video autoplay="" class="absolute inset-0 w-full h-full object-cover z-0 opacity-100 transition-opacity duration-700" loop="" muted="" playsinline="">
+<source src="starter.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40 z-10 pointer-events-none"></div>
+<div class="absolute top-10 left-10 z-20 flex items-center gap-5 animate-fade-in">
+<div class="w-20 h-20 rounded-full overflow-hidden shadow-2xl border-[3px] border-cream/20 bg-coffee-dark ring-1 ring-black/20">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvnBp2GP6OWSE9I2tbNTArJFte8KwiD00jfWP5OHhGBnndEzrK1KpILaUjLlfI0izq5CaF7nNnnDG52Camf7N_sN6onbr1ql0dxvNXpMU9R9cfGdX_30g6nh09U8QFtuCzkglVbfmhDf7mRvL9Y_bWDszcihQ6OVdWLvoS5c-ogo7Rnl7737c0CrjQxrf781sa1sVKy59X9fUJ4LRBK3Wmhtqgeb0G6QOdYQ0_HK26JHyh4i2hYvF9BG2BiaYwlOJdJuoP5hoUruQ");'></div>
+</div>
+<div class="flex flex-col">
+<h1 class="text-cream font-black text-3xl tracking-tight drop-shadow-lg">BARISTA</h1>
+<div class="flex items-center gap-2">
+<span class="h-[1px] w-6 bg-coffee-foam/60"></span>
+<p class="text-coffee-foam text-xs font-bold tracking-[0.2em] uppercase drop-shadow-md">Artisan Coffee</p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-12 right-12 z-30 animate-fade-in" style="animation-delay: 0.5s;">
+<button class="group relative flex items-center gap-5 pl-8 pr-2 py-2 bg-cream-translucent backdrop-blur-xl hover:bg-cream rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out hover:scale-105 active:scale-95 border border-white/50 ring-1 ring-white/20">
+<div class="flex flex-col items-start gap-0.5">
+<span class="text-coffee-dark font-extrabold text-xl leading-none">Skip Intro</span>
+<span class="text-coffee-accent text-xs font-semibold uppercase tracking-wider opacity-80 group-hover:opacity-100 transition-opacity">Touch to Order</span>
+</div>
+<div class="w-14 h-14 rounded-full bg-coffee-accent text-cream flex items-center justify-center group-hover:bg-coffee-dark transition-colors duration-300 shadow-inner">
+<span class="material-symbols-outlined !text-3xl">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+
+</body></html>

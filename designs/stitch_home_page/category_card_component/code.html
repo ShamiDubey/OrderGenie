@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barista - Category Cards</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8b4513",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211811",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased min-h-screen flex flex-col">
+<!-- Header / Context -->
+<header class="w-full px-6 py-8 md:px-12 flex flex-col md:flex-row md:items-center justify-between gap-6 max-w-[1440px] mx-auto">
+<div class="flex flex-col gap-2">
+<h1 class="text-3xl md:text-4xl font-bold tracking-tight text-primary dark:text-amber-600">
+                Menu Categories
+            </h1>
+<p class="text-slate-500 dark:text-slate-400 max-w-lg text-lg">
+                Explore our curated selection of artisan blends and fresh delights.
+            </p>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search Input Placeholder -->
+<div class="relative group hidden md:block">
+<input class="pl-10 pr-4 py-2.5 bg-white dark:bg-[#2a201a] border border-stone-200 dark:border-stone-700 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 w-64 transition-all" placeholder="Search categories..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-stone-400 text-[20px]">search</span>
+</div>
+<button class="flex items-center justify-center h-10 w-10 rounded-full bg-white dark:bg-[#2a201a] border border-stone-200 dark:border-stone-700 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors shadow-sm text-primary">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area: Grid of Cards -->
+<main class="flex-1 w-full px-6 md:px-12 pb-20 max-w-[1440px] mx-auto">
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+<!-- Card Component 1: Coffee -->
+<article class="group relative h-[360px] w-full flex-col justify-end overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer">
+<!-- Background Image Container with Zoom Effect -->
+<div class="absolute inset-0 h-full w-full overflow-hidden bg-stone-200">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110" data-alt="Close up of latte art in a white cup on a wooden table" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCbt9jmG9pefqqd7a24fqxM2Ja7XmXbL1OTVproSLwPREHPVkg37T5nsZu8O_ud7yKox7Y-Enh377zdEW8-Cor0LTJKf6n3LSdZzTaYYL2pIrowB8xaN806IeGQ-Zh2qbZFEelIl3TmTIFzSDnYRpXXIDdEVTrKf2Rk-BAch1Fxe_XQdDEZAwo4-_EchQk90CU_gC1tevqq_QUatNCbBGLEJ5LAcmAwg9idOL6aK8rBNd8W_0IyhfF8H0Z3nRp1O3HOtdyuC1n1-IY');">
+</div>
+</div>
+<!-- Gradient Overlay for Readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90"></div>
+<!-- Card Content -->
+<div class="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
+<div class="flex items-end justify-between w-full">
+<div class="flex flex-col gap-1 transform transition-transform duration-300 group-hover:-translate-y-1">
+<span class="inline-flex w-fit items-center rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-md mb-2">
+                                Popular
+                            </span>
+<h2 class="text-3xl font-bold text-white tracking-tight">Artisan Coffee</h2>
+<p class="text-stone-300 font-medium text-base">14 Selections</p>
+</div>
+<!-- Hover Action Button -->
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card Component 2: Bakery -->
+<article class="group relative h-[360px] w-full flex-col justify-end overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer">
+<div class="absolute inset-0 h-full w-full overflow-hidden bg-stone-200">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110" data-alt="Freshly baked croissants and pastries in a basket" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCASDAD7Auger6_HnO8O4YQKt48gkGWP2IsCo9nzhpONx4g3nV9k8Of6RTSyrQxDla-tDnVEZwAZ6R-yezkEHXmv4CoR7f41t4bmWuYto03BYSup4vnTRdUkmJ7-bdcbAGGYqD5HEcA_VcaSTSnLSS32ctmFy6anxopkEuTNWyZFcyRuI9WTg3oT3M6UJx_OjynTadL5juLvu-4bPoIz7MUOXlmMyc30iYfrKfW6obztnpF0dYtj7tesWO2Ybg4EQNbMv20RQgIWiM');">
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90"></div>
+<div class="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
+<div class="flex items-end justify-between w-full">
+<div class="flex flex-col gap-1 transform transition-transform duration-300 group-hover:-translate-y-1">
+<h2 class="text-3xl font-bold text-white tracking-tight">Fresh Bakery</h2>
+<p class="text-stone-300 font-medium text-base">22 Selections</p>
+</div>
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card Component 3: Breakfast -->
+<article class="group relative h-[360px] w-full flex-col justify-end overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer">
+<div class="absolute inset-0 h-full w-full overflow-hidden bg-stone-200">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110" data-alt="Avocado toast with poached egg on a plate" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCY3jehZH7oAdfLnktFSlACG4eTCK-avxrWGwuFeJL1lBBtJszIQXobKNZsn3K5EKgSlE0BhaRspIOzu7lMTAXGWCkNhXcmBDI29dgKb2gH9tXAqyIGVEHe_V4c-oeB2eRKaj2ksRNMo_LFmiba_YpXHTWRwx_HNRbHvmAC6kmOYOLQSfX8y5ix8VIz-7Xj_akaVqq3IHzS_B4Atjpw79iNn0gONxFuYBdKiG3FXRRB0hPRnBCANfIH6Cr-gv0d31OzKtLw_vzU0Z8');">
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90"></div>
+<div class="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
+<div class="flex items-end justify-between w-full">
+<div class="flex flex-col gap-1 transform transition-transform duration-300 group-hover:-translate-y-1">
+<span class="inline-flex w-fit items-center rounded-full bg-green-600/80 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-md mb-2">
+                                Healthy
+                            </span>
+<h2 class="text-3xl font-bold text-white tracking-tight">Breakfast &amp; Brunch</h2>
+<p class="text-stone-300 font-medium text-base">8 Selections</p>
+</div>
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card Component 4: Cold Brews -->
+<article class="group relative h-[360px] w-full flex-col justify-end overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer">
+<div class="absolute inset-0 h-full w-full overflow-hidden bg-stone-200">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110" data-alt="Iced cold brew coffee in a glass jar with milk swirl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCiQZXzRfTelWjyR2Enid3pXOg43_rBKWRJg4e6LM84_s-P_hkTXG9Lmk8bRUNxrCa9NAH4HgUt5fTSVSM65Sh8sL2OLSMW1cJq6YwvLHu0pcvcgHi7NxSaMG5Gx0nTOQxSXu00GYjMVaJy2deE2qYIO5-De20RQrME0IXogHG3Eq2pE5mcv_nC0AT0PkI2fMEDk1GwcUOt5q_A5yXrK09ytX63Otl34K-QtUn8kykC7iXFlWThqJfwJz_eNtZFfNBZqtXlhfYqtw');">
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90"></div>
+<div class="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
+<div class="flex items-end justify-between w-full">
+<div class="flex flex-col gap-1 transform transition-transform duration-300 group-hover:-translate-y-1">
+<h2 class="text-3xl font-bold text-white tracking-tight">Cold Brews</h2>
+<p class="text-stone-300 font-medium text-base">6 Selections</p>
+</div>
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card Component 5: Sweet Treats -->
+<article class="group relative h-[360px] w-full flex-col justify-end overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer">
+<div class="absolute inset-0 h-full w-full overflow-hidden bg-stone-200">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110" data-alt="Chocolate cake slice with berries on top" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFihsk_JkTwNjhbzfgg3_ITWdX7uvNdn9cWwxjHnaGg5QEwxh6nvWl-ccdumPgXV65twVrWwFoXlfzptD7rDVewCn38P9iFSPsZsHE4hfATS4VUeIVZf4Q_bZ8NR_gzjVklesqdYc06yPA7dQp89u2O6QHbmwd1pI1N_-mOXc1H_I_fwPKV-G7eiOSwXeoTOYIL4AgK920LIeUY5-nOF0K9MEPsHm98OE7A-VLQvYu-uYomj9vGuWfswRb1rijbvRaBt0ko_DJ_5E');">
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90"></div>
+<div class="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
+<div class="flex items-end justify-between w-full">
+<div class="flex flex-col gap-1 transform transition-transform duration-300 group-hover:-translate-y-1">
+<h2 class="text-3xl font-bold text-white tracking-tight">Sweet Treats</h2>
+<p class="text-stone-300 font-medium text-base">10 Selections</p>
+</div>
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card Component 6: Tea (Simple Variation) -->
+<!-- Variation: Sometimes categories might not have great photos, using a solid color/gradient fallback with icon -->
+<article class="group relative h-[360px] w-full flex-col justify-end overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer bg-primary/10 border-2 border-dashed border-primary/20 hover:border-primary/40">
+<!-- Icon Centered as fallback/alternative style -->
+<div class="absolute inset-0 flex items-center justify-center text-primary/20 group-hover:text-primary/30 transition-colors">
+<span class="material-symbols-outlined text-9xl">emoji_food_beverage</span>
+</div>
+<div class="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
+<div class="flex items-end justify-between w-full">
+<div class="flex flex-col gap-1">
+<h2 class="text-3xl font-bold text-primary dark:text-amber-600 tracking-tight">Teas &amp; Infusions</h2>
+<p class="text-primary/60 dark:text-amber-600/60 font-medium text-base">18 Selections</p>
+</div>
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary dark:text-amber-600 shadow-sm transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+</body></html>

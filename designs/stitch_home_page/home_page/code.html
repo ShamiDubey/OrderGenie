@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barista - Home</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8b4513",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211811",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2a201a",
+                        "text-main-light": "#1b130e",
+                        "text-main-dark": "#f3ece8",
+                        "text-secondary-light": "#956d50",
+                        "text-secondary-dark": "#ccb0a0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Hide scrollbar for horizontal scroll areas but allow functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-display antialiased overflow-x-hidden">
+<!-- Navigation -->
+<div class="sticky top-0 z-50 w-full border-b border-[#f3ece8] dark:border-[#3a2e26] bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm">
+<div class="max-w-[1200px] mx-auto px-4 sm:px-10 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2 text-primary cursor-pointer">
+<span class="material-symbols-outlined text-3xl">local_cafe</span>
+<h1 class="text-text-main-light dark:text-text-main-dark text-xl font-bold tracking-tight">Barista</h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-text-main-light dark:text-text-main-dark hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Menu</a>
+<a class="text-text-main-light dark:text-text-main-dark hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Locations</a>
+<a class="text-text-main-light dark:text-text-main-dark hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">About</a>
+</div>
+<div class="flex gap-3">
+<button class="hidden sm:flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px] mr-2">face</span>
+<span>Face Login</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark border border-[#e5e0dc] dark:border-[#4a3e36] text-sm font-bold hover:bg-[#ece6e2] dark:hover:bg-[#3a2e26] transition-colors">
+                    Sign In
+                </button>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<div class="relative w-full">
+<div class="max-w-[1200px] mx-auto px-4 sm:px-10 py-6 md:py-10">
+<div class="relative rounded-2xl overflow-hidden min-h-[500px] flex items-center justify-center text-center p-6 bg-cover bg-center" data-alt="Cozy warm coffee shop interior with wooden tables and latte art on a table" style='background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIzrcsQo4Rq0azPnkY2zaDv3QlZdO-OU1Knk7nroI0SKsjYDQ9hZ9xqncs7dADBha9w_woj0wTMMzY8yK2gHhZzCZhQ_YZKyFR4BauFyJPBArV9Dz1Azzsv7tqxEbASjyIIFJoQRfxs3O935snnoUQ95WciLic71KkhdTbOcLHUqPnDOIOGk718OOGqB5d3yTy4D8FSyUlgHSQKnnIbheDusgAEeD68zxA_1xbVQtpRetg97iQ1En2FN6ofRo9vmZ_vUSCs4vmEdo");'>
+<div class="relative z-10 flex flex-col items-center gap-6 max-w-2xl">
+<h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight drop-shadow-sm">
+                        Experience Coffee, <br/><span class="text-amber-200">Reimagined.</span>
+</h1>
+<p class="text-gray-100 text-lg md:text-xl font-medium max-w-lg leading-relaxed drop-shadow-sm">
+                        Premium blends, artisan pastries, and smart ordering with face recognition.
+                    </p>
+<div class="flex flex-wrap gap-4 justify-center mt-4">
+<button class="flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-white text-base font-bold hover:bg-[#723a10] transition-transform hover:scale-105 shadow-lg">
+                            Browse Menu
+                        </button>
+<button class="flex items-center justify-center h-12 px-8 rounded-lg bg-white/90 backdrop-blur text-primary text-base font-bold hover:bg-white transition-transform hover:scale-105 shadow-lg">
+<span class="material-symbols-outlined mr-2">face</span>
+                            Face Login
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Categories Section -->
+<div class="max-w-[1200px] mx-auto px-4 sm:px-10 py-10">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold text-text-main-light dark:text-text-main-dark">Browse Categories</h2>
+<a class="text-primary text-sm font-bold flex items-center hover:underline" href="#">
+                View All <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+<!-- Category Item 1 -->
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-transparent group-hover:border-primary/20 transition-all shadow-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Rich dark espresso in a small white cup" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAHSUwqygb_W12Uh334_vTkZ_FHVsMYofx9j3vfR-nWhnd68sSr6wamZQC4onbukKdBKHMW1FfaLjg8Jk0sLjaZrSRc7IjBIdFY79sirHs_dITy4jK0wmeqyPxQZBhHIiGnaiWCeWcu4p-Rdk0wn3wDj6FBwzwI9BsTiBeNp3zCLunwe54ns58gUgZNg7KlIs1pljhI_LzEhtegW7bTTKXj1iZNK5O3Hf1Dv26pyE2B6EqvEdzedHKtvKxMMxBXSe6aU8qf6IJE4E");'></div>
+</div>
+<div class="text-center">
+<p class="font-bold text-text-main-light dark:text-text-main-dark">Espresso</p>
+</div>
+</div>
+<!-- Category Item 2 -->
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-transparent group-hover:border-primary/20 transition-all shadow-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Pour over coffee dripping into a glass carafe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDcFGZ-8CobUlFdE6XeKtYROmpuADqWRogKN88DeJKttMjor6aAgXZVBJoMccbnQfXmj6F92D6cM6mKXbqiKjfP5AqxQhOT1_cF8o4z5xzcK99e4DRgpVRR3nes9tPDGbUMNT9zlxW4NnpN9mS4CTmBc09N5IT9hRiXjYHV0fHExNKh4es6GkKgklYwOtzI0aCb2NyEq1CTli3uJVaXKk4q1u6NN8w4hEbbCD0bxqhoR8Ppz5KlXlmmrCmQ-_F_T1xHOUfFUhYqCvc");'></div>
+</div>
+<div class="text-center">
+<p class="font-bold text-text-main-light dark:text-text-main-dark">Pour Over</p>
+</div>
+</div>
+<!-- Category Item 3 -->
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-transparent group-hover:border-primary/20 transition-all shadow-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Iced coffee with milk swirl in a tall glass" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0Ak2hPDF7i3yXUNsZxqqhuvZzo5rZjxHbMEmD8HuRfWacBHO3thWkAngJM4vCpLw7cF5eGyF6b8TdetPHNkqe9eFYdmx2GMSDBlrg0Fnca_LNLpSyoYwjsSTDMkPEgUjesQO5HLVeuw_xAsCIiDBN9YasjaFsTgFF-32qEwCIehuXSgICHZaljDeFW8FP9OKU2FokiBcOt54UoFbjC4y48aKnn5zmrTsS0EqQL9uEmzhCaC9iv5KqlA2zmDpeFLIDVfa7UWazDjo");'></div>
+</div>
+<div class="text-center">
+<p class="font-bold text-text-main-light dark:text-text-main-dark">Cold Brew</p>
+</div>
+</div>
+<!-- Category Item 4 -->
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-transparent group-hover:border-primary/20 transition-all shadow-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Freshly baked croissants on a wooden tray" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBkBSCO4HtpsBTmqExZFrmm0mV73OE6yNM6CSOG-106g2DPg5c9Yy9qpNZ0aCetPnB1ICsn9nRVnIv5SqI1wUPMwhpUtuKOq7i-QFYp3tYxGRCEXX47VYTmdvDydxH7U4-KYdBq7wKBLf7rOCFQUBGcyPNtVhuHXNBlcfdjL9aEa323BaZh8Xuw3DQ87pUQj8G2ZtV0_8Z67i5YnGEvkf7HLtgld8GYHy8u8x7WRupTcefC6-AE0ZsBG7Xy8S0NNv7qX9NkcTMDFPQ");'></div>
+</div>
+<div class="text-center">
+<p class="font-bold text-text-main-light dark:text-text-main-dark">Bakery</p>
+</div>
+</div>
+<!-- Category Item 5 -->
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-transparent group-hover:border-primary/20 transition-all shadow-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Gourmet sandwich with avocado and egg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGBW6x7hNNSvxkTgUD8_QyXFDiFPrRngaHdjZJbxwgq5y3fjqS7QZlw9GhL5Ci8l8bRLBVHQMO_VNJyOM2PU-U0jU7AKh9QQMxodCgUUNTEaIzWXz2RPUTK9Yd2lCtTK8h1f9S6Kfgj5vigKyf2sgi-ZCz4BZ2LF_omc2XPkZpCBC-9QfEdDX40CcUcI-gOHRPx4UsLWLxlzrurF9SmkfN067IE0jcUSY-4AqEW_m0w9PZoEbtb5YJ1yoBK6xvwQ8G9Z56ji17-wI");'></div>
+</div>
+<div class="text-center">
+<p class="font-bold text-text-main-light dark:text-text-main-dark">Breakfast</p>
+</div>
+</div>
+<!-- Category Item 6 -->
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-transparent group-hover:border-primary/20 transition-all shadow-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Various organic tea blends in glass jars" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPIi_cXp6GjCunA_2jNz1eXbT04Acddz3d25uIedPOO9jp9i8QkCJ3pQxT7sxd-NJFOFqQvLPgBl2HG4GD0a4VFdESRDXQbF9MBUPVGIstB4zakd6pK9r51S3rwiMW0evcCzALobdzI2MlipJQ0F9BC7RJL0aeXxtBLufRwNWXCOCXfimJJqJAxSbffJWveYVdh4H2fw2kvOBbcxwqre5qqSB1RgqUBSx9wD9_p90e6YtNtmmvWGzulBCYkIY7k2ra8UoP71wEi4s");'></div>
+</div>
+<div class="text-center">
+<p class="font-bold text-text-main-light dark:text-text-main-dark">Teas</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Items Section -->
+<div class="bg-surface-light dark:bg-surface-dark py-12">
+<div class="max-w-[1200px] mx-auto px-4 sm:px-10">
+<h2 class="text-2xl font-bold text-text-main-light dark:text-text-main-dark mb-8">Featured Items</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product Card 1 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full border border-transparent hover:border-primary/10">
+<div class="relative w-full pt-[75%] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Caramel Macchiato with foam art" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2T6sIyiGr-veNqQgfNcGyQBgC91dAZbfA8xz6rgf1hIbTozWSAYWpCSV58K0-nLwlz_c9N0PkDepojpE_Omp2v6AJ_kRdyGputfcM_LhUl26L0jLyeMh-z1i2cGYMK2tjg1k_ZdrUmHg4QEL5dIF5WAL4qdr7OeoSujhOMoPwT0kGfeYx17FhmBKKemCImxAHbM0qAIYKeeFg3IZD3vpHZVY5wVrNXF29MtVsajLNTNTFHiOBCw-HKJVzDpVwU2SEtwFavhHi9TE");'>
+</div>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-1 rounded-md text-xs font-bold text-primary shadow-sm">
+                            Popular
+                        </div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-lg text-text-main-light dark:text-text-main-dark">Caramel Macchiato</h3>
+<span class="font-bold text-primary">$4.50</span>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mb-4 flex-1">Espresso with vanilla-flavored syrup, milk, and caramel drizzle.</p>
+<button class="w-full h-10 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Add to Order
+                        </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full border border-transparent hover:border-primary/10">
+<div class="relative w-full pt-[75%] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Avocado toast on artisan bread with seeds" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVR7jpPu-sZCAOFmeA96jgbNtqHiWR0mhRuipTyCsH9C2NjeRArgPz63TJB8Vvb1x3PBpYth1bmPN_gJn1am9wLg0CLgl6z5927ceC0HOk7r3uAmTNKIeHfymjSLl7RoEphrN3wYWNmOXQoHqPL43x6cKV28mFKRrnR_ZfnybrcZU2GmSA4op8cmRxo71y65EIW5QONCwFMrfkaXeiJjPAglZxmMq2-euNmGfFr6qjj_WvrMxUtfKparZdCst4gVl1ZjCxzALjuKE");'>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-lg text-text-main-light dark:text-text-main-dark">Avocado Toast</h3>
+<span class="font-bold text-primary">$8.25</span>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mb-4 flex-1">Sourdough bread topped with smashed avocado, radish, and seeds.</p>
+<button class="w-full h-10 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Add to Order
+                        </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full border border-transparent hover:border-primary/10">
+<div class="relative w-full pt-[75%] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Tall glass of nitro cold brew coffee" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvgvvMCAEGnYfaBcc94iA40bzmPkWxcnH71uXkrIuHqTMw0XLCITc2it-t1LNwM3gBWUaia4KPA8W_1H6mkXWJaHZfPWs0CCq8zHEmuNn9jMBdLc-TuhuTTpFSeMvy2TbIbTA0yoo3l9o_-tMsdkEYjXwjklVeCmn-kowHb6i7_7mzoK3SZwAbgoCbqEnGUnUKxw51sblPtDVq_VrA0EL2yqM9o9IP8ZoF_X4BDru0Q8Lw2AGL7GsuUK8ivcP6_0mrcbhtI15pWB4");'>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-lg text-text-main-light dark:text-text-main-dark">Nitro Cold Brew</h3>
+<span class="font-bold text-primary">$5.00</span>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mb-4 flex-1">Slow-steeped custom blend, infused with nitrogen for a creamy texture.</p>
+<button class="w-full h-10 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Add to Order
+                        </button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full border border-transparent hover:border-primary/10">
+<div class="relative w-full pt-[75%] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Blueberry muffin with crumble top" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDLnFVyYiSzYm-MU7dzzR8GK1cWBKC9SkZXRJrypQ2ihN5OC8xEahXnz3iFHbP2dZKDQrh28auSYsTifLiCQgHNPL_w8jdFp-3Hb1IU1_MNTPMWElP5D3FAbioQ3pGdE4wi9Vjt3u54sC05kIRz1sVmtgKnaR9SK7zPtr63qM4B9ag3yFK3QK1d0DtMuPhKARA6zJ1Fk15Vp6S0tk-g6UOBjS-4CoOw3olxi1W_EsX5EoEahDIj8T9bv7vWWOSoB7dysTxyJvfsWZ0");'>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-lg text-text-main-light dark:text-text-main-dark">Artisan Muffin</h3>
+<span class="font-bold text-primary">$3.75</span>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mb-4 flex-1">Freshly baked daily. Ask about today's seasonal flavors.</p>
+<button class="w-full h-10 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Add to Order
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Face ID Promo Section -->
+<div class="w-full bg-primary/5 dark:bg-primary/10 py-16 px-4">
+<div class="max-w-[1000px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+<div class="flex-1 text-center md:text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-4">
+<span class="material-symbols-outlined text-sm">bolt</span> NEW FEATURE
+                </div>
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-text-main-light dark:text-text-main-dark">Unlock Flavor with a Smile</h2>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-lg mb-8 leading-relaxed">
+                    Skip the line and reorder your favorites instantly using our secure Face Login technology. It's fast, contactless, and personalized just for you.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+<button class="flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-primary text-white font-bold hover:bg-[#723a10] transition-colors shadow-md">
+<span class="material-symbols-outlined">face</span>
+                        Set up Face ID
+                    </button>
+<button class="flex items-center justify-center gap-2 h-12 px-6 rounded-lg text-primary font-bold hover:bg-primary/10 transition-colors">
+                        Learn more
+                    </button>
+</div>
+</div>
+<div class="flex-1 flex justify-center items-center relative">
+<!-- Abstract visual representation of Face ID -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 bg-white dark:bg-surface-dark rounded-full flex items-center justify-center shadow-xl border-8 border-primary/20">
+<span class="material-symbols-outlined text-[120px] md:text-[150px] text-primary">face_unlock</span>
+<div class="absolute -top-4 -right-4 bg-background-light dark:bg-background-dark p-3 rounded-xl shadow-lg flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">check</span>
+</div>
+<div class="text-left">
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-medium">Status</p>
+<p class="text-sm font-bold text-text-main-light dark:text-text-main-dark">Verified</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Trending / Horizontal Scroll Section -->
+<div class="max-w-[1200px] mx-auto px-4 sm:px-10 py-12">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold text-text-main-light dark:text-text-main-dark">Trending Now</h2>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full border border-[#e5e0dc] dark:border-[#4a3e36] flex items-center justify-center hover:bg-surface-light dark:hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+</button>
+<button class="w-8 h-8 rounded-full border border-[#e5e0dc] dark:border-[#4a3e36] flex items-center justify-center hover:bg-surface-light dark:hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Scroll Container -->
+<div class="flex overflow-x-auto gap-6 pb-6 no-scrollbar snap-x snap-mandatory">
+<!-- Trending Card 1 -->
+<div class="snap-center shrink-0 w-[280px] group bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-transparent hover:border-primary/10 transition-all">
+<div class="h-40 bg-cover bg-center" data-alt="Matcha latte with foam art" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDW-e1rf6naI8RcFAdYoSG6h-orCv8aOMDJIW9lTgv0LRx4IVNk1XdWSNkSlT6zJaPCaNP0AfZxcm-eZPmCGhYJQ_gKS7Jp2kUq-vRGBhTG7qqqnDEycPCOquZ7jgnMlQdgy70-Ynyry7OQiooKOHaIJeyVcrZkeMjSdo1D7BsTP1mYvIOlbyaNc6G4M-GOFcoUyOH4WUlugeCQl01X58_bJuFpsEbqS_dnbaiOdwbUT_5pVQJ9Slc-iECedgHnoZn-PdANcggZ9Kw");'></div>
+<div class="p-4">
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark">Matcha Latte</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1">Japanese green tea with steamed milk.</p>
+<div class="flex justify-between items-center mt-3">
+<span class="font-bold text-primary">$5.25</span>
+<button class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Trending Card 2 -->
+<div class="snap-center shrink-0 w-[280px] group bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-transparent hover:border-primary/10 transition-all">
+<div class="h-40 bg-cover bg-center" data-alt="Chocolate croissant" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDyzmzrjmmzyuTfoEVrBBK6TewA0NUAx9Ey8WlDG9meBlL0CXzYAuvQvdeJmD7pSwl7ZqFmct8Vribaoci6vJz80jjnRjlht_H8byrNko9ltLWVcR0G8inBqL_nRTgzdXOJTlbaRK0E1rlOnJXuJKUw2jpoonik4utAAykk291rmyqPdwfIxwBU9AFEJP3ACcFl4DnOrsKofrkac3aW-DRMxDT3EZcvF763EQERMffgU2__RU3PSM_CtsLBXlfqwxhJVL6WZFpnJBU");'></div>
+<div class="p-4">
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark">Pain au Chocolat</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1">Buttery pastry with dark chocolate.</p>
+<div class="flex justify-between items-center mt-3">
+<span class="font-bold text-primary">$3.95</span>
+<button class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Trending Card 3 -->
+<div class="snap-center shrink-0 w-[280px] group bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-transparent hover:border-primary/10 transition-all">
+<div class="h-40 bg-cover bg-center" data-alt="Flat white coffee in a cup" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAo9m-4K8zHucdN8pJMAJpVNLiTe4cXzRWr0pl5jVAHFNShnURVXN2zHXGBhIGCsSM9cTbX2oWrBuAfkCblzJ2tlCyIZ4ZF6jRsKKN7lC-6qPqmbcj4sqWZGgxywhZwobeuLop9KQZfCOTeKFW6Lg2UUVcyuhWEtnUnwdPyga3DRyCI5iATvfBWq7ULOzIJ6Nq_-tv-3SikLbH_qx9ju-3YDElf0LcH10kFj6ISiyeiZWo8JhV0Omyv5Np6M0kWQmQ-QcSrNLKnUuY");'></div>
+<div class="p-4">
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark">Flat White</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1">Microfoam poured over espresso.</p>
+<div class="flex justify-between items-center mt-3">
+<span class="font-bold text-primary">$4.25</span>
+<button class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Trending Card 4 -->
+<div class="snap-center shrink-0 w-[280px] group bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-transparent hover:border-primary/10 transition-all">
+<div class="h-40 bg-cover bg-center" data-alt="Strawberry smoothie bowl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJcfrNNo6MFVi89rzoyiDrLF-ix1Kb4nikYcO73GcqAeHWYq8TqBLx3QDUDM9aDYld4vg7MmGg6R-qBOdvzb_KSj9KZ7NVXjE8KjuhRW5mRq5-7wfg6yL2D9jqukiFZdAQ-Slioq_4lvmmRSGzjipxi1NDhigCILZZIOTaxBmSD7KQxmDPAVtIWLP9vGvIgPj4g0ANwUrzzUQdyan5ZGThF_N__kL782dmqps9VGQZCAcYvQ54R_3p9T5ZZIgKig9gu1wv21Ngsdk");'></div>
+<div class="p-4">
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark">Acai Bowl</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1">Topped with granola and fresh fruits.</p>
+<div class="flex justify-between items-center mt-3">
+<span class="font-bold text-primary">$9.50</span>
+<button class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Trending Card 5 -->
+<div class="snap-center shrink-0 w-[280px] group bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-transparent hover:border-primary/10 transition-all">
+<div class="h-40 bg-cover bg-center" data-alt="Cappuccino with cocoa powder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClsZnLqcJ4axbFiv5EMoiWjl_IbtxBDI1b5fl_0Skr-g1Bmci9O61JRi41pJ7H5MwcQZucYTHPnJPU9D5xvjkDcYWsGcp535BtaoupdR1YCtjBu-YqjEdjGGxw-NR98sYh-D2pjJSk2G5VG799qm2gYOlGw1iLdjtCtPwNjQQXVszrOnIZ2seRZ0P42WqI6W7vgS1nqBvG9aZGfammy7rL6iz6AROjm1m86zkGfbrydA0WspxNGwCiEi2Xenvw_vyo12ZW0LtJgZQ");'></div>
+<div class="p-4">
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark">Cappuccino</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1">Equal parts espresso, milk, and foam.</p>
+<div class="flex justify-between items-center mt-3">
+<span class="font-bold text-primary">$4.00</span>
+<button class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-[#f3ece8] dark:border-[#3a2e26] pt-12 pb-8">
+<div class="max-w-[1200px] mx-auto px-4 sm:px-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-2xl">local_cafe</span>
+<h2 class="text-lg font-bold">Barista</h2>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Artisan coffee meets modern convenience. Experience the future of brewing.</p>
+</div>
+<div>
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark mb-4">Discover</h3>
+<ul class="flex flex-col gap-2 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+<li><a class="hover:text-primary transition-colors" href="#">Our Menu</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark mb-4">Support</h3>
+<ul class="flex flex-col gap-2 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Face ID Setup</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark mb-4">Visit Us</h3>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mb-2">123 Artisan Ave, Coffee City, CA 90210</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Mon-Sun: 7am - 8pm</p>
+<div class="flex gap-4 mt-4">
+<a class="w-8 h-8 rounded-full bg-background-light dark:bg-background-dark flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-background-light dark:bg-background-dark flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-[#f3ece8] dark:border-[#3a2e26] pt-8 text-center text-xs text-text-secondary-light dark:text-text-secondary-dark">
+<p>© 2023 Barista Inc. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>

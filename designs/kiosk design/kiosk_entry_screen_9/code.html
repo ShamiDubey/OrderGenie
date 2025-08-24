@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barista Kiosk Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "coffee-primary": "#8B5E3C",
+                        "coffee-secondary": "#A97C50",
+                        "coffee-dark": "#4E342E",
+                        "coffee-light": "#D7CCC8",
+                        "cream": "#FFF8E1",
+                        "surface-brown": "#3E2723",
+                        "surface-brown-light": "#5D4037",
+                        "background-dark": "#2D2420",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-stone-50 dark:bg-background-dark min-h-screen w-full flex flex-col font-display overflow-hidden select-none text-stone-900 dark:text-stone-100">
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-coffee-secondary/10 rounded-full blur-[120px]"></div>
+<div class="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-coffee-primary/10 rounded-full blur-[100px]"></div>
+</div>
+<div class="absolute inset-0 bg-black/40 backdrop-blur-sm z-20 flex items-center justify-center p-4 md:p-8">
+<div class="bg-white dark:bg-[#1E1917] w-full max-w-2xl max-h-full rounded-3xl shadow-2xl flex flex-col relative border border-stone-200 dark:border-stone-800 overflow-hidden">
+<div class="flex items-center justify-between p-6 border-b border-stone-100 dark:border-stone-800 bg-white dark:bg-[#1E1917] z-10 shrink-0">
+<h2 class="text-2xl font-bold text-stone-800 dark:text-stone-100">Checkout</h2>
+<button class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="overflow-y-auto p-6 space-y-6 scrollbar-hide">
+<div class="bg-stone-50 dark:bg-[#2A2422] rounded-2xl p-5 border border-stone-100 dark:border-stone-700/50">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-lg flex items-center gap-2 text-stone-700 dark:text-stone-200">
+<span class="material-symbols-outlined text-coffee-primary">receipt_long</span>
+                            Order Summary
+                        </h3>
+<span class="text-sm font-medium text-coffee-primary cursor-pointer hover:underline">Edit</span>
+</div>
+<div class="space-y-3 mb-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded bg-stone-200 dark:bg-stone-700 flex items-center justify-center font-bold text-xs text-stone-600 dark:text-stone-300">1x</div>
+<div>
+<p class="font-semibold text-stone-800 dark:text-stone-100">Caramel Macchiato</p>
+<p class="text-sm text-stone-500 dark:text-stone-400">Large, Oat Milk, Extra Shot</p>
+</div>
+</div>
+<span class="font-medium text-stone-800 dark:text-stone-200">$6.50</span>
+</div>
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded bg-stone-200 dark:bg-stone-700 flex items-center justify-center font-bold text-xs text-stone-600 dark:text-stone-300">1x</div>
+<div>
+<p class="font-semibold text-stone-800 dark:text-stone-100">Blueberry Muffin</p>
+<p class="text-sm text-stone-500 dark:text-stone-400">Warmed</p>
+</div>
+</div>
+<span class="font-medium text-stone-800 dark:text-stone-200">$3.75</span>
+</div>
+</div>
+<div class="pt-4 border-t border-stone-200 dark:border-stone-700 flex justify-between items-center">
+<span class="text-stone-500 dark:text-stone-400">Total (incl. tax)</span>
+<span class="text-xl font-black text-stone-800 dark:text-stone-100">$10.25</span>
+</div>
+</div>
+<div class="bg-stone-50 dark:bg-[#2A2422] rounded-2xl p-5 border border-stone-100 dark:border-stone-700/50">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-bold text-lg flex items-center gap-2 text-stone-700 dark:text-stone-200">
+<span class="material-symbols-outlined text-coffee-primary">shopping_bag</span>
+                            Order Type
+                        </h3>
+<span class="text-sm font-medium text-coffee-primary cursor-pointer hover:underline">Change</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white dark:bg-[#362E2B] rounded-xl border border-stone-200 dark:border-stone-700">
+<span class="material-symbols-outlined text-coffee-secondary">storefront</span>
+<div class="flex flex-col">
+<span class="font-semibold text-stone-800 dark:text-stone-100">Dine In</span>
+<span class="text-xs text-stone-500 dark:text-stone-400">Table number required at counter</span>
+</div>
+</div>
+</div>
+<div class="bg-stone-50 dark:bg-[#2A2422] rounded-2xl p-5 border border-stone-100 dark:border-stone-700/50">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-lg flex items-center gap-2 text-stone-700 dark:text-stone-200">
+<span class="material-symbols-outlined text-coffee-primary">person</span>
+                            Customer Information
+                        </h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-sm font-medium text-stone-600 dark:text-stone-400">First Name <span class="text-red-500">*</span></label>
+<input class="w-full rounded-xl border-stone-300 dark:border-stone-600 bg-white dark:bg-[#362E2B] text-stone-900 dark:text-white focus:ring-coffee-primary focus:border-coffee-primary py-3 px-4" placeholder="Enter name" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-stone-600 dark:text-stone-400">Phone Number <span class="text-red-500">*</span></label>
+<input class="w-full rounded-xl border-stone-300 dark:border-stone-600 bg-white dark:bg-[#362E2B] text-stone-900 dark:text-white focus:ring-coffee-primary focus:border-coffee-primary py-3 px-4" placeholder="(555) 000-0000" type="tel"/>
+</div>
+</div>
+<p class="mt-3 text-xs text-stone-500 dark:text-stone-500">We'll text you when your order is ready.</p>
+</div>
+</div>
+<div class="p-6 bg-white dark:bg-[#1E1917] border-t border-stone-100 dark:border-stone-800 shrink-0">
+<div class="hidden mb-3 p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">error</span>
+                    Please fill in all required fields.
+                </div>
+<button class="w-full bg-coffee-primary hover:bg-coffee-secondary text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-coffee-primary/20 flex items-center justify-center gap-3 transition-all active:scale-[0.99] text-lg">
+<span>Place Order</span>
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+</div>
+</div>
+</div>
+
+</body></html>
