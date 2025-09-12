@@ -1,0 +1,371 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model FaceProfile {
+  id          String   @id @default(uuid())
+  name        String
+  email       String   @unique
+  username    String?  @unique
+  phone       String?
+  totalPoints Int      @default(0) @map("total_points")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  // Avatar (user uploaded profile picture)
+  avatarUrl   String?  @map("avatar_url")
+  avatarId    String?  @map("avatar_id")
+
+  // Address
+  addressStreet   String?  @map("address_street")
+  addressCity     String?  @map("address_city")
+  addressState    String?  @map("address_state")
+  addressPincode  String?  @map("address_pincode")
+  addressLandmark String?  @map("address_landmark")
+
+  // Dietary Preferences
+  dietaryPreference String?  @default("none") @map("dietary_preference") // none, vegan, vegetarian, eggetarian, non-vegetarian
+  hideNonVeg        Boolean  @default(false) @map("hide_non_veg")
+  religion          String?  @map("religion") // hindu, muslim, christian, jain, buddhist, sikh, other, prefer_not_to_say
+
+  // Account creation tracking
+  createdBy         String?  @map("created_by") // ADMIN, APP, or EMP_{employeeId}
+
+  // Kiosk login (simple password, no encryption)
+  password          String?
+
+  embeddings          FaceEmbedding[]
+  detectionLogs       DetectionLog[]
+  orders              Order[]
+  preferences         UserPreference?
+  recommendationCache RecommendationCache[]
+  pointsTransactions  PointsTransaction[]
+
+  @@index([username])
+  @@map("face_profiles")
+}
+
+model FaceEmbedding {
+  id         String   @id @default(uuid())
+  profileId  String   @map("profile_id")
+  embedding  Float[]
+  imagePath  String?  @map("image_path")
+  confidence Float?
+  modelName  String   @default("Facenet512") @map("model_name")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  profile       FaceProfile    @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  detectionLogs DetectionLog[]
+
+  @@index([profileId])
+  @@map("face_embeddings")
+}
+
+model DetectionLog {
+  id                 String   @id @default(uuid())
+  facesDetected      Int      @default(0) @map("faces_detected")
+  matchedProfileId   String?  @map("matched_profile_id")
+  matchedEmbeddingId String?  @map("matched_embedding_id")
+  distance           Float?
+  processingTimeMs   Int?     @map("processing_time_ms")
+  createdAt          DateTime @default(now()) @map("created_at")
+
+  matchedProfile   FaceProfile?   @relation(fields: [matchedProfileId], references: [id], onDelete: SetNull)
+  matchedEmbedding FaceEmbedding? @relation(fields: [matchedEmbeddingId], references: [id], onDelete: SetNull)
+
+  @@map("detection_logs")
+}
+
+// ============================================
+// CATEGORY MODEL
+// ============================================
+model Category {
+  id           String    @id @default(uuid())
+  name         String    @unique
+  slug         String    @unique
+  description  String?
+  imageUrl     String?   @map("image_url")
+  displayOrder Int       @default(0) @map("display_order")
+  isActive     Boolean   @default(true) @map("is_active")
+  // Menu modifiers for product customization (e.g., sugar level, toppings)
+  // Format: [{ name: string, required: bool, multiSelect: bool, options: [{ name: string, price: number }] }]
+  modifiers    Json      @default("[]")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  products Product[]
+
+  @@index([isActive])
+  @@index([displayOrder])
+  @@map("categories")
+}
+
+// ============================================
+// PRODUCT MODEL
+// ============================================
+model Product {
+  id              String    @id @default(uuid())
+  name            String
+  slug            String    @unique
+  description     String?
+  price           Decimal   @db.Decimal(10, 2)
+  discountedPrice Decimal?  @map("discounted_price") @db.Decimal(10, 2)
+  discountEnds    DateTime? @map("discount_ends")
+  isVeg           Boolean   @default(true) @map("is_veg")
+  tags            String[]  @default([])
+  imageUrl        String?   @map("image_url")
+  imagePublicId   String?   @map("image_public_id")
+  thumbnailUrl    String?   @map("thumbnail_url")
+  categoryId      String?   @map("category_id")
+  isAvailable     Boolean   @default(true) @map("is_available")
+  isFeatured      Boolean   @default(false) @map("is_featured")
+  displayOrder    Int       @default(0) @map("display_order")
+  preparationTime Int?      @map("preparation_time")
+  calories        Int?
+  servingSize     String?   @map("serving_size")
+  royaltyPoints   Int       @default(50) @map("royalty_points")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  category   Category?   @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  orderItems OrderItem[]
+
+  @@index([categoryId])
+  @@index([isAvailable])
+  @@index([isVeg])
+  @@index([isFeatured])
+  @@index([slug])
+  @@map("products")
+}
+
+// ============================================
+// ORDER STATUS ENUM
+// ============================================
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PREPARING
+  READY
+  COMPLETED
+  CANCELLED
+}
+
+// ============================================
+// PAYMENT METHOD ENUM
+// ============================================
+enum PaymentMethod {
+  PAY_ON_COUNTER
+  CREDIT_CARD
+  DEBIT_CARD
+  UPI
+  APPLE_PAY
+  GOOGLE_PAY
+  UPI_APPS
+}
+
+// ============================================
+// ORDER TYPE ENUM
+// ============================================
+enum OrderType {
+  DINE_IN
+  PICKUP
+  TAKEAWAY
+}
+
+// ============================================
+// ORDER MODEL
+// ============================================
+model Order {
+  id            String      @id @default(uuid())
+  orderNumber   String      @unique @map("order_number")
+
+  // Customer info (optional link to FaceProfile)
+  profileId     String?     @map("profile_id")
+  profile       FaceProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
+  customerName  String      @map("customer_name")
+  customerEmail String?     @map("customer_email")
+  customerPhone String?     @map("customer_phone")
+
+  // Employee who created the order (optional)
+  employeeId    String?     @map("employee_id")
+  employee      Employee?   @relation(fields: [employeeId], references: [id], onDelete: SetNull)
+
+  // Order details
+  status        OrderStatus @default(PENDING)
+  orderType     OrderType   @default(DINE_IN) @map("order_type")
+  paymentMethod PaymentMethod? @map("payment_method")
+  notes         String?
+
+  // Pricing (stored as snapshot)
+  subtotal      Decimal     @db.Decimal(10, 2)
+  discountTotal Decimal     @default(0) @map("discount_total") @db.Decimal(10, 2)
+  taxAmount     Decimal     @default(0) @map("tax_amount") @db.Decimal(10, 2)
+  grandTotal    Decimal     @map("grand_total") @db.Decimal(10, 2)
+
+  // Points earned (set when order is completed)
+  pointsEarned  Int?        @map("points_earned")
+
+  // Timestamps
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+  confirmedAt   DateTime?   @map("confirmed_at")
+  completedAt   DateTime?   @map("completed_at")
+  cancelledAt   DateTime?   @map("cancelled_at")
+
+  // Relations
+  items             OrderItem[]
+  pointsTransaction PointsTransaction?
+
+  @@index([profileId])
+  @@index([employeeId])
+  @@index([status])
+  @@index([createdAt])
+  @@index([orderNumber])
+  @@map("orders")
+}
+
+// ============================================
+// ORDER ITEM MODEL
+// ============================================
+model OrderItem {
+  id              String   @id @default(uuid())
+  orderId         String   @map("order_id")
+  order           Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  // Product snapshot (store data at time of order)
+  productId       String?  @map("product_id")
+  product         Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productName     String   @map("product_name")
+  productSlug     String   @map("product_slug")
+
+  // Quantity
+  quantity        Int      @default(1)
+
+  // Pricing snapshot (at time of order)
+  unitPrice       Decimal  @map("unit_price") @db.Decimal(10, 2)
+  discountedPrice Decimal? @map("discounted_price") @db.Decimal(10, 2)
+  effectivePrice  Decimal  @map("effective_price") @db.Decimal(10, 2)
+  lineTotal       Decimal  @map("line_total") @db.Decimal(10, 2)
+
+  // Additional product snapshot
+  isVeg           Boolean  @map("is_veg")
+  categoryName    String?  @map("category_name")
+  royaltyPoints   Int      @default(0) @map("royalty_points")
+
+  // Timestamps
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@index([orderId])
+  @@index([productId])
+  @@map("order_items")
+}
+
+// ============================================
+// USER PREFERENCE MODEL (computed from order history)
+// ============================================
+model UserPreference {
+  id                 String    @id @default(uuid())
+  profileId          String    @unique @map("profile_id")
+  profile            FaceProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  vegPreference      Float     @default(0.5) @map("veg_preference")
+  priceRange         String    @default("medium") @map("price_range")
+  avgOrderValue      Decimal   @default(0) @map("avg_order_value") @db.Decimal(10, 2)
+  categoryAffinities Json      @default("{}") @map("category_affinities")
+  tagAffinities      Json      @default("{}") @map("tag_affinities")
+  favoriteProducts   String[]  @default([]) @map("favorite_products")
+  totalOrders        Int       @default(0) @map("total_orders")
+  lastOrderAt        DateTime? @map("last_order_at")
+
+  // AI-generated insights (updated with each order)
+  aiInsight          String?   @map("ai_insight")           // Human-readable insight text
+  insightMetadata    Json?     @map("insight_metadata")     // Structured data for analytics
+  insightUpdatedAt   DateTime? @map("insight_updated_at")   // When insight was last generated
+
+  createdAt          DateTime  @default(now()) @map("created_at")
+  updatedAt          DateTime  @updatedAt @map("updated_at")
+
+  @@index([profileId])
+  @@map("user_preferences")
+}
+
+// ============================================
+// RECOMMENDATION CACHE MODEL
+// ============================================
+model RecommendationCache {
+  id              String       @id @default(uuid())
+  profileId       String?      @map("profile_id")
+  profile         FaceProfile? @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  type            String       @default("personalized")
+  context         String?
+  recommendations Json
+  aiInsights      String?      @map("ai_insights")
+  expiresAt       DateTime     @map("expires_at")
+  createdAt       DateTime     @default(now()) @map("created_at")
+
+  @@unique([profileId, type, context])
+  @@index([profileId])
+  @@index([expiresAt])
+  @@map("recommendation_cache")
+}
+
+// ============================================
+// GLOBAL ANALYTICS CACHE MODEL
+// ============================================
+model GlobalAnalytics {
+  id         String   @id @default(uuid())
+  type       String   @unique
+  data       Json
+  computedAt DateTime @map("computed_at")
+  expiresAt  DateTime @map("expires_at")
+
+  @@index([type])
+  @@map("global_analytics")
+}
+
+// ============================================
+// EMPLOYEE MODEL
+// ============================================
+model Employee {
+  id              String    @id @default(uuid())
+  employeeId      String    @unique @map("employee_id")
+  name            String
+  pin             String
+  dateOfBirth     DateTime? @map("date_of_birth")
+  gender          String?
+  profileImageUrl String?   @map("profile_image_url")
+  profileImageId  String?   @map("profile_image_id")
+  isActive        Boolean   @default(true) @map("is_active")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  lastLoginAt     DateTime? @map("last_login_at")
+
+  orders Order[]
+
+  @@index([employeeId])
+  @@index([isActive])
+  @@map("employees")
+}
+
+// ============================================
+// POINTS TRANSACTION MODEL
+// ============================================
+model PointsTransaction {
+  id          String      @id @default(uuid())
+  profileId   String      @map("profile_id")
+  profile     FaceProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  orderId     String?     @unique @map("order_id")
+  order       Order?      @relation(fields: [orderId], references: [id], onDelete: SetNull)
+  points      Int
+  type        String      @default("EARNED") // EARNED, REDEEMED, ADJUSTED
+  description String?
+  createdAt   DateTime    @default(now()) @map("created_at")
+
+  @@index([profileId])
+  @@index([createdAt])
+  @@map("points_transactions")
+}
